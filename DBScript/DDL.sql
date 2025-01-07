@@ -1,0 +1,22 @@
+-- jeckjeck.com_user definition
+CREATE TABLE `com_user` (
+  `UIDX` int NOT NULL AUTO_INCREMENT,
+  `USERID` varchar(100) NOT NULL,
+  `USERPWD` varchar(4000) NOT NULL,
+  `USERNM` varchar(100) NOT NULL,
+  `BIRTHDT` varchar(16) DEFAULT NULL,
+  `USERTYPECD` varchar(45) DEFAULT NULL,
+  `GENDERCD` varchar(45) DEFAULT NULL,
+  `APPDT` varchar(16) DEFAULT NULL,
+  `APPTYPE` varchar(45) DEFAULT NULL,
+  `APPUSERID` varchar(45) DEFAULT NULL,
+  `DELYN` varchar(2) DEFAULT NULL,
+  `CREDT` varchar(16) DEFAULT NULL,
+  `CREUSERID` varchar(45) DEFAULT NULL,
+  `MODDT` varchar(16) DEFAULT NULL,
+  `MODUSERID` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`UIDX`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+
+
+

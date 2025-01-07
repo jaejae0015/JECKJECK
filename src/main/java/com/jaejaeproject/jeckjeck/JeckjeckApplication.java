@@ -11,8 +11,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
-@MapperScan("com.jaejaeproject.jeckjeck.com.mapper") 
+/**
+ * @Class Name : JeckjeckApplication.java
+ * @Modification Information
+ * @
+ * @ ModifyDate      Modifier              Comment
+ * @ -----------    ----------    ---------------------------
+ * @ 2025.01.07        서지애       		   최초 생성
+ *
+ *  @author 서지애
+ *  @since 2025.01.07
+ *  @version 1.0
+ *  @see
+ *
+ */
 @SpringBootApplication
+@MapperScan("com.jaejaeproject.jeckjeck.com.mapper") 
 public class JeckjeckApplication {
 
 	public static void main(String[] args) {
