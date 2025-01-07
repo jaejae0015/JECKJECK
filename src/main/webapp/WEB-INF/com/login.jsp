@@ -5,6 +5,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>sum10</title>
 </head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btnHello").click(function(){
+			console.log("@#@#@@@@@");
+			$.ajax({
+				url: "/com/login.do",
+				type: "get",
+				async:false,
+				success:function(){
+					
+				},
+				error:function(xhr,status,error){
+					
+				},
+				complete: function(xhr,status){
+					
+				}
+			})
+		});
+	});
+</script>
 <body>
 
 <% 
@@ -16,5 +38,6 @@
 
 1부터 10까지의 합 : <%=total %>
 
+<button id="btnHello">hello</button>
 </body>
 </html>
