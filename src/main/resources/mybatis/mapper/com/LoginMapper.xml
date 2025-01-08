@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jaejaeproject.jeckjeck.com.mapper.LoginMapper">
-	<select id="selectUserLoginInfo" parameterType="com.jaejaeproject.jeckjeck.com.dto.LoginDTO" resultType="com.jaejaeproject.jeckjeck.com.dto.LoginDTO">
+	<select id="selectUserLoginInfo" parameterType="HashMap" resultType="com.jaejaeproject.jeckjeck.com.dto.LoginDTO">
 		<![CDATA[
 		/*
 			Location : /com/LoginMapper_SQL.xml

@@ -1,5 +1,7 @@
 package com.jaejaeproject.jeckjeck.com.service;
 
+import java.util.HashMap;
+
 import com.jaejaeproject.jeckjeck.com.dto.LoginDTO;
 
 /**
@@ -18,5 +20,5 @@ import com.jaejaeproject.jeckjeck.com.dto.LoginDTO;
  *
  */
 public interface LoginService {
-	public LoginDTO getLoginUserInfo(LoginDTO loginUser);
+	public LoginDTO getLoginUserInfo(HashMap<String,Object> loginUser);
 }

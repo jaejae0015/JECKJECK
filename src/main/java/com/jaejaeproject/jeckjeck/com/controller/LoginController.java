@@ -4,11 +4,17 @@ import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jaejaeproject.jeckjeck.com.dto.LoginDTO;
 import com.jaejaeproject.jeckjeck.com.service.LoginService;
 import com.jaejaeproject.jeckjeck.util.MyUtil;
+
+import jakarta.servlet.http.HttpSession;
 
 
 /**
@@ -44,34 +50,50 @@ public class LoginController {
 	 * @throws Exception
 	 */
 	@GetMapping(value="/")
-	public String login()  throws Exception{
+	public String login() throws Exception{
 		return "login";
 	}
-	
 	
 	/**
 	 * Description : 사용자 로그인처리
 	 * 
 	 * @param param
+	 * @param session
 	 * @return resultMap
 	 * @throws Exception
 	 */
-	@GetMapping("/com/login.do")
-	public String loginProc()  throws Exception{
+	@ResponseBody
+	@PostMapping("/com/login.do")
+	public HashMap<String,Object> loginProc(HttpSession session, @RequestParam HashMap<String,Object> param) throws Exception{
 		
 		HashMap<String,Object> resultMap = new HashMap<String, Object>();
-		LoginDTO testUser =new LoginDTO();
-		testUser.userid="admin";
-		
-		LoginDTO loginInfo = loginService.getLoginUserInfo(testUser);
+		LoginDTO loginInfo = loginService.getLoginUserInfo(param);
 		if(loginInfo != null) {
-			resultMap.put("loginUserInfo",loginInfo);
+            session.setAttribute("loginUser", loginInfo);
 			resultMap.put("success", true);
-			return "login";
 		}else {
 			resultMap.put("success", false);
-			return "error";
 		}
+		return resultMap;
+	}
+	
+	/**
+	 * Description : 메인화면
+	 * 
+	 * @param session
+	 * @param model
+	 * @return resultMap
+	 * @throws Exception
+	 */
+	@GetMapping("/com/main.do")
+	public String main(HttpSession session, Model model) throws Exception{
 		
+		LoginDTO loginUser = (LoginDTO) session.getAttribute("loginUser");
+        if (loginUser != null) {
+            model.addAttribute("loginUser", loginUser);
+            return "main";
+        } else {
+            return "redirect:/com/login.do";
+        }
 	}
 }

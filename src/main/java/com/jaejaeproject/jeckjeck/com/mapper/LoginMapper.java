@@ -1,5 +1,7 @@
 package com.jaejaeproject.jeckjeck.com.mapper;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.jaejaeproject.jeckjeck.com.dto.LoginDTO;
@@ -21,5 +23,5 @@ import com.jaejaeproject.jeckjeck.com.dto.LoginDTO;
  */
 @Mapper
 public interface LoginMapper {
-	public LoginDTO selectUserLoginInfo(LoginDTO loginUser);
+	public LoginDTO selectUserLoginInfo(HashMap<String,Object> loginUser);
 }

@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+ /* 태그 초기화 */
+ *{
+    margin: 0;
+    padding: 0;
+    font: normal 12px '돋움';
+}
+
+ul, ol{list-style: none;}
+a {text-decoration: none; color: #111;}
+input,textarea {outline: none;}
+
+#wrapper{
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+}
+/* 헤더 */
+header{
+    width: 100%;
+    height: 35px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ebebeb;
+}
+header > h3{
+    float: left;
+    font-weight: bold;
+    color: #777;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+
+
+/* 푸터 */
+footer{
+    width: 100%;
+    height: 35px;
+    background-color: #f7f7f7;
+    border-top: 1px solid #ebebeb;
+}
+footer > p {
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #777;
+}
+
+
+/* 로그인 */
+#user > .login{
+    position: relative;
+    width: 360px;
+    height: auto;
+    border: 1px solid #cfded8;
+    box-sizing: border-box;
+    margin: 100px auto;
+}
+#user > .login > .loginForm > table {
+    margin-left: 35px;
+    margin-top: 30px;
+    border-collapse: collapse;
+    border-spacing: 0 ;
+}
+#user > .login > .loginForm > table img {width: 54px;}
+#user > .login > .loginForm > table input {
+    width: 162px;
+    height: 22px;
+    margin-left: 6px;
+    margin-bottom: 4px;
+    background-color: #f7f7f7;
+    border: 1px solid #e4eaec;
+}
+#user > .login > .loginForm > .btnLogin {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    width: 60px;
+    height: 52px;
+    background-color: #fdfdfd;
+    border: 1px solid #bebebe;
+    color: #111;
+}
+
+#user > .login > div:not(.loginForm) {
+    width: 100%;
+    height: 104px;
+    background-color: #f5f6fa;
+    border-top: 1px solid #cfded8 ;
+    margin-top: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#user > .login > div:not(.loginForm) > p {
+    margin: 10px 0;
+}
+#user > .login > div:not(.loginForm) > a {
+    float: right;
+}

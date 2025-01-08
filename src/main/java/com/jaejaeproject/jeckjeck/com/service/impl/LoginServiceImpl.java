@@ -1,5 +1,7 @@
 package com.jaejaeproject.jeckjeck.com.service.impl;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,11 +31,8 @@ public class LoginServiceImpl implements LoginService{
 	private LoginMapper loginMapper;
 	
 	@Override
-	public LoginDTO getLoginUserInfo(LoginDTO loginUser) {
-		System.out.println("##################"+loginUser.userid);
+	public LoginDTO getLoginUserInfo(HashMap<String, Object> loginUser) {
 		LoginDTO loginInfo = loginMapper.selectUserLoginInfo(loginUser);
-		
-		System.out.println("@@@@@@@@@@@@@@@@@"+loginInfo.userid);
 		return loginInfo;
 	}
 
