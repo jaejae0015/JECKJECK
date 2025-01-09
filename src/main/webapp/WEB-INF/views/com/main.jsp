@@ -1,4 +1,7 @@
 <%@ include file="/WEB-INF/include/_header.jsp" %>
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -653,4 +656,15 @@
 
             </div>
             <!-- End of Main Content -->
+  			<!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright jaejae0015</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+</div>
+<!-- End of Content Wrapper -->
 <%@ include file="/WEB-INF/include/_footer.jsp" %> 
