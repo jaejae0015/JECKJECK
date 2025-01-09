@@ -11,44 +11,6 @@ ul, ol{list-style: none;}
 a {text-decoration: none; color: #111;}
 input,textarea {outline: none;}
 
-#wrapper{
-    width: 800px;
-    height: auto;
-    margin: 0 auto;
-}
-/* 헤더 */
-header{
-    width: 100%;
-    height: 35px;
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #ebebeb;
-}
-header > h3{
-    float: left;
-    font-weight: bold;
-    color: #777;
-    margin-top: 10px;
-    margin-left: 10px;
-
-}
-
-
-
-/* 푸터 */
-footer{
-    width: 100%;
-    height: 35px;
-    background-color: #f7f7f7;
-    border-top: 1px solid #ebebeb;
-}
-footer > p {
-    float: right;
-    margin-top: 10px;
-    margin-right: 10px;
-    color: #777;
-}
-
-
 /* 로그인 */
 #user > .login{
     position: relative;

@@ -46,7 +46,7 @@
                  <tbody>
 	                 <tr>
 	                     <td rowspan="2">
-	                     	<img src="/static/images/login_img.png" alt="비밀번호">
+	                     	<img src="/static/img/login_img.png" alt="비밀번호">
 	                     </td>
 	                     <td><input type="text" id="userId" placeholder="아이디 입력"></td>
 	                 </tr>
