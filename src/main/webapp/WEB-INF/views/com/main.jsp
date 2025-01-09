@@ -2,7 +2,6 @@
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
@@ -665,6 +664,8 @@
             </div>
         </footer>
         <!-- End of Footer -->
+</div>
+   <!-- End of Footer -->
 </div>
 <!-- End of Content Wrapper -->
 <%@ include file="/WEB-INF/include/_footer.jsp" %> 
