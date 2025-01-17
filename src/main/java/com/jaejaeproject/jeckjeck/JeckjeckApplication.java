@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Class Name : JeckjeckApplication.java
@@ -25,10 +27,18 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
  *  @see
  *
  */
+@RestController
 @SpringBootApplication
 @MapperScan("com.jaejaeproject.jeckjeck.com.mapper") 
 public class JeckjeckApplication {
 
+	
+	@RequestMapping("/dockertest")
+	String home() {
+		return "Hello World!";
+	}
+	
+	
 	public static void main(String[] args) {
 		SpringApplication.run(JeckjeckApplication.class, args); 
 	}

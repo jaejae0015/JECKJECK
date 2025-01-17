@@ -51,7 +51,7 @@ public class LoginController {
 	 */
 	@GetMapping(value="/")
 	public String login() throws Exception{
-		return "login";
+		return "com/login";
 	}
 	
 	/**
