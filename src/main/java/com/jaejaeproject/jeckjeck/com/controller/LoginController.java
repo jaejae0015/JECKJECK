@@ -91,7 +91,7 @@ public class LoginController {
 		LoginDTO loginUser = (LoginDTO) session.getAttribute("loginUser");
         if (loginUser != null) {
             model.addAttribute("loginUser", loginUser);
-            return "main";
+            return "com/main";
         } else {
             return "redirect:/com/login.do";
         }

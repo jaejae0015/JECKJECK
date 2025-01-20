@@ -33,12 +33,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class JeckjeckApplication {
 
 	
-	@RequestMapping("/dockertest")
-	String home() {
-		return "Hello World!";
-	}
-	
-	
 	public static void main(String[] args) {
 		SpringApplication.run(JeckjeckApplication.class, args); 
 	}
