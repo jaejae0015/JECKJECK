@@ -55,5 +55,8 @@ jobs:
         key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         script: |
           docker pull ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:latest
+
+          docker-compose -f /home/ubuntu/docker-compose.yml pull 
           docker-compose -f /home/ubuntu/docker-compose.yml up -d --remove-orphans
+
           docker image prune -f
