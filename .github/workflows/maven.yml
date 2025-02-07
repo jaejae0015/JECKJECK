@@ -44,8 +44,8 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:${{ github.sha }} .
-        docker push ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:${{ github.sha }}
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:latest .
+        docker push ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:latest
 
     - name: SSH to Server and Deploy
       uses: appleboy/ssh-action@v0.1.6
@@ -54,6 +54,6 @@ jobs:
         username: ubuntu
         key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         script: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:${{ github.sha }}
+          docker pull ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:latest
           docker-compose -f /home/ubuntu/docker-compose.yml up -d --remove-orphans
           docker image prune -f
