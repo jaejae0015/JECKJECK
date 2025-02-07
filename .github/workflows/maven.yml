@@ -54,7 +54,14 @@ jobs:
         username: ubuntu
         key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         script: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:latest
-          docker-compose pull
-          docker-compose up -d
+          # 최신 이미지를 pull
+          docker pull ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:latest  # 커밋 SHA를 활용한 태그 사용
+    
+          # 이미지 업데이트
+          docker-compose -f /home/ubuntu/docker-compose.yml pull
+    
+          # 새로운 이미지를 사용해 컨테이너를 시작, 기존 컨테이너를 종료하지 않음
+          docker-compose -f /home/ubuntu/docker-compose.yml up -d --no-deps jeckjeck  # "app" 서비스만 업데이트
+    
+          # 불필요한 이미지를 정리
           docker image prune -f
