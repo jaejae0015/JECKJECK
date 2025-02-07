@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Java CI/CD with Maven
 
 on:
   push:
@@ -18,7 +18,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    permissions:
+        contents: read
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -31,4 +32,22 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Build without Tests
       run: mvn clean package -DskipTests
- 
+
+    - name: Log in to DockerHub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+    - name: Build Docker Image
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:${{ github.sha }} .
+        docker push ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:${{ github.sha }}
+
+    - name: SSH to Server and Deploy
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        host: ${{ secrets.AWS_EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+        script: |
+          docker pull ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:${{ github.sha }}
+          docker-compose -f /home/ubuntu/docker-compose.yml up -d --remove-orphans
+          docker image prune -f
