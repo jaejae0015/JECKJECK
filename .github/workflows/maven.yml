@@ -54,7 +54,7 @@ jobs:
         username: ubuntu
         key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         script: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:${{ github.sha }}  # 커밋 SHA를 활용한 태그 사용
+          docker pull jaejae0015/jaejaeproject:latest  # 커밋 SHA를 활용한 태그 사용
           docker-compose -f /home/ubuntu/docker-compose.yml pull
           docker-compose -f /home/ubuntu/docker-compose.yml up -d --no-deps jeckjeck  # 'jeckjeck' 서비스만 갱신
           docker image prune -f
