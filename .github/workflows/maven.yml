@@ -54,7 +54,7 @@ jobs:
         username: ubuntu
         key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         script: |
-          # 최신 이미지를 pull
-          docker pull ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:latest  # 커밋 SHA를 활용한 태그 사용
-          docker-compose up -d
+          docker pull ${{ secrets.DOCKER_USERNAME }}/jaejaeproject:latest
+          docker-compose -f /home/ubuntu/docker-compose.yml pull
+          docker-compose -f /home/ubuntu/docker-compose.yml up -d --no-deps jeckjeck
           docker image prune -f
